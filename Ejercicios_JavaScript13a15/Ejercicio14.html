@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 14</title>
+    <script type="text/javascript">
+      function calculaEdad(birthYear){
+        var fecha = new Date();
+        return fecha.getFullYear() - birthYear;
+      }
+      do {
+        var anoNacimiento = prompt("Introduce tu fecha de nacimiento");
+      } while (anoNacimiento < 0);
+      var edad = calculaEdad(anoNacimiento);
+      if (edad <= 12) {
+        document.write("¡¡Hola, peque!! ¿Saben tus padres que estás en el ordenador? :D");
+      } else if (edad > 12 && edad <= 25){
+        document.write("¡¡Heyy!! ¿Qué tal, colega? ¿Todo bien con la novia? ;)");
+      }
+      else {
+        document.write("Muy buenos días, caballero/dama. ¿Qué le trae por esta página web? Reciba mis más coridales agradecimientos.");
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

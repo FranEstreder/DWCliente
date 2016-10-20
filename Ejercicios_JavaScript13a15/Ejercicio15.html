@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 15</title>
+    <script type="text/javascript">
+      var diaSemana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+      function muestraDias () {
+        for (var i = 0; i < diaSemana.length; i++) {
+          document.write(diaSemana[i] + "<br>");
+        }
+      }
+      function diaSemanaPedido () {
+        var x = 0;
+        do {
+          x = prompt("Introduce el día de la semana en número");
+        } while (x < 1 || x > 7);
+        switch (parseInt(x)) {
+          case 1:
+            document.write("Lunes");
+            break;
+          case 2:
+            document.write("Martes");
+            break;
+          case 3:
+            document.write("Miércoles");
+            break;
+          case 4:
+            document.write("Jueves");
+            break;
+          case 5:
+            document.write("Viernes");
+            break;
+          case 6:
+            document.write("Sábado");
+            break;
+          case 7:
+            document.write("Domingo");
+            break;
+        }
+      }
+      muestraDias();
+      diaSemanaPedido();
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

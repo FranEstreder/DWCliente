@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var fecha = new Date();
+      var dia = fecha.getDay();
+      switch (dia) {
+        case 0: document.write("¡Ánimo, que ya es Domingo! ¡Hoy acaba la semana!");
+          break;
+        case 1: document.write("¡Ánimo, que ya es Lunes! Faltan 6 días para acabar la semana.");
+          break;
+        case 2: document.write("¡Ánimo, que ya es Martes! Faltan 5 días para acabar la semana.");
+          break;
+        case 3: document.write("¡Ánimo, que ya es Miércoles! Faltan 4 días para acabar la semana.");
+          break;
+        case 4: document.write("¡Ánimo, que ya es Jueves! Faltan 3 días para acabar la semana.");
+          break;
+        case 5: document.write("¡Ánimo, que ya es Viernes! Faltan 2 días para acabar la semana.");
+          break;
+        case 6: document.write("¡Ánimo, que ya es Sábado! Falta 1 día para acabar la semana.");
+          break;
+      }
+    </script>
+  </body>
+</html>
