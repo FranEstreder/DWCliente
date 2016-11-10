@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ejercicio 3</title>
+		<script type="text/javascript">
+			function recorreTag () {
+			    var color = document.getElementsByTagName("input")[0].value;
+			    var pes = document.getElementsByTagName("p");
+			    for (var i = 0; i < pes.length; i++)
+			    {
+			        pes[i].style.color = color;
+			        pes[i].innerText = "Este párrafo es el número " + (i+1);
+			    }
+		}
+		</script>
+	</head>
+	<body>
+		<div id="contiene_ps">
+      		<p>Este párrafo es el número 1</p>
+      		<p>Este párrafo es el número 2</p>
+      		<p>Este párrafo es el número 3</p>
+      		<p>Este párrafo es el número 4</p>
+      		<p>Este párrafo es el número 5</p>
+      		<p>Este párrafo es el número 6</p>
+			<div id="cambiame">
+				<input type="color" id="txtColor" value="#FF0000">
+				<button id="actualizar" onclick="recorreTag();">Modificar los párrafos!</button>
+			</div>
+		</div>
+  	</body>	
+</html>
