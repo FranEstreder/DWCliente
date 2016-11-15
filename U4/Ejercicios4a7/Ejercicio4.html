@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Sugerencias</h1>
+	<form action="#" method="post">
+		<p class="destacado">Sugerencias:</p>
+		<br>
+		<textarea name="sugerencia" rows="100" cols="100"></textarea>
+		<button type="button" name="button" onclick="mostrar()">Enviar</button>
+	</form>
+	<p id="resultado">Gracias por participar</p>
+	<script type="text/javascript">
+		document.getElementsByTagName('h1')[0].innerText = "Contenido cambiado";
+
+		var destacado = document.getElementsByClassName('destacado');
+		for (var i = 0; i < destacado.length; i++) {
+			destacado[i].style.fontWeight = "bold";
+		}
+
+		document.getElementById('resultado').style.visibility = "hidden";
+
+		document.getElementsByName('sugerencia')[0].setAttribute("required", "required");
+
+		function mostrar() {
+			document.getElementById('resultado').style.visibility = "initial";
+		}
+	</script>
+</body>
+</html>
