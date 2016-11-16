@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ejercicio 8</title>
+	</head>
+	<body>
+		<h1>Modificar tamaño</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>Qué bonito que es Lorem ipsum. Voy a llorar de la emoción!</p>
+		<div>
+		    <span>Seleccionar color:</span>
+		    <select id="combo">
+			    <option value="10px">Pequeño</option>
+			    <option value="16px">Mediano</option>
+			    <option value="24px">Grande</option>
+		    </select>
+		    <button onclick="modificarSize();">Cambiar</button>
+		</div>
+
+		<script type="text/javascript">
+			function modificarSize() {
+				var tamano = document.getElementById('combo').value;
+				document.querySelector('h1').style.fontSize = tamano;
+				var pes = document.querySelectorAll('p');
+				for (var i = 0; i < pes.length; i++) {
+					pes[i].style.fontSize = tamano;
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <title>Crea elementos del DOM</title>
+	    <script type="text/javascript">
+	    	function creaDOM(){
+	    		var h1 = document.createElement("h1");
+	    		var texto = document.createTextNode("Este es el título de la página");
+	    		h1.appendChild(texto);
+	    		document.body.appendChild(h1);
+
+	    		var img = document.createElement("img");
+	    		document.body.appendChild(img);
+	    		document.getElementsByTagName('img')[0].setAttribute("src", "http://www.underconsideration.com/brandnew/archives/google_2015_logo_detail.png");
+	    		document.getElementsByTagName('img')[0].setAttribute("alt", "Logo Google");
+
+	    		document.body.removeChild(img);
+	    	}
+	    </script>
+	</head>
+	<body onload="creaDOM()">
+	
+	</body>
+</html>	
