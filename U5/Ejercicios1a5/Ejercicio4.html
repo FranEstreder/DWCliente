@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ejercicio 4</title>
+		<style>
+            body {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                margin: 0px;
+            }
+        </style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function coordenadas(e) {
+				if (e.shiftKey) {
+					x = e.clientX;
+					y = e.clientY;
+
+					console.log("Coordenada X: " + x + ".");
+					console.log("Coordenada Y: " + y + ".");
+				}
+			}
+			document.querySelector('body').onmousemove = coordenadas;
+		</script>
+	</body>
+</html>

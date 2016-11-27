@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ejercicio 2</title>
+		<script type="text/javascript">
+			function pincha(){
+				document.querySelector('div').innerHTML = "¡Me has cambiado! ¡¡Genial!!";
+			}
+
+			function dblclick(){
+				document.querySelector('h1').innerHTML = "¡Me has cambiado! ¡¡Genial!!";
+			}
+
+			function pasar(){
+				document.querySelector('h2').innerHTML = "¡Me has cambiado! ¡¡Genial!!";
+			}
+
+			function pulsa(){
+				document.querySelector('h3').innerHTML = "¡Me has cambiado! ¡¡Genial!!";
+			}
+
+			function suelta(){
+				document.querySelector('p').innerHTML = "¡Me has cambiado! ¡¡Genial!!";
+			}
+		</script>
+	</head>
+	<body>
+		<div onclick="pincha()">Esto es un div precioso. Para cambiarme hazme click.</div>
+		<h1 ondblclick="dblclick()">Esto es un h1 aún más bonito. Para cambiarme hazme doble click.</h1>
+		<h2 onmouseover="pasar()">¡Y de este h2 ni hablemos! Pasa sobre mí para cambiarme.</h2>
+		<h3 onmousedown="pulsa()">Pero bueno, ¿qué tenemos aquí? ¡Un h3! Pulsa un botón sobre mi para cambiarme.</h3>
+		<p onmouseup="suelta()">Y este p, bueno, pues aquí está. Suelta el botón sobre mi para cambiarme.</p>
+	</body>
+</html>

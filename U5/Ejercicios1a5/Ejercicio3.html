@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ejercicio 3</title>
+	</head>
+	<body>
+		<div>Esto es un div precioso. Para cambiarme hazme doble click.</div>
+		<h1>Esto es un h1 aún más bonito. Para cambiarme hazme doble click.</h1>
+		<h2>¡Y de este h2 ni hablemos! Para cambiarme hazme doble click.</h2>
+		<a href="#">Esto es un enlace increíble. Para cambiarme hazme doble click.</a>
+		<h3>Pero bueno, ¿qué tenemos aquí? ¡Un h3! Para cambiarme hazme doble click.</h3>
+		<p>Y este p, bueno, pues aquí está. Para cambiarme hazme doble click.</p>
+
+		<script type="text/javascript">
+			function dblclick (e) { 
+				e.target.style.color = "turquoise"; 
+			}
+
+			document.querySelector('p').ondblclick = dblclick;
+			document.querySelector('a').ondblclick = dblclick;
+			document.querySelector('h1').ondblclick = dblclick;
+			document.querySelector('h2').ondblclick = dblclick;
+			document.querySelector('h3').ondblclick = dblclick;
+			document.querySelector('div').ondblclick = dblclick;
+		</script>
+	</body>
+</html>

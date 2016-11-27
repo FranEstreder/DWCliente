@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ejercicio 1</title>
+		<script type="text/javascript">
+			function cambio(){
+				document.querySelector('img').setAttribute("src", "http://wallpapercave.com/wp/b8FBTnL.jpg");
+				document.querySelector('img').setAttribute("alt", "Kingdom Hearts 1");
+			}
+
+			function revertir(){
+				document.querySelector('img').setAttribute("src", "http://wallpapercave.com/wp/6QyOBvx.jpg");
+				document.querySelector('img').setAttribute("alt", "Todo Kingdom Hearts");
+			}
+		</script>
+	</head>
+	<body>
+		<img onmouseover="cambio()" onmouseout="revertir()" src="http://wallpapercave.com/wp/6QyOBvx.jpg" alt="Todo Kingdom Hearts">
+	</body>
+</html>
