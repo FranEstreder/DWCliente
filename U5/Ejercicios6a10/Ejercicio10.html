@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ejercicio 10</title>
+	</head>
+
+	<body onkeypress="manejaZoom(event)">
+
+	   <img src="http://inspirationfeed.com/wp-content/uploads/2010/06/1024x1024_Dizorb_Phlegethon_HD_Wallpaper-500x500.jpg" id="imagen">
+
+	   <script type="application/javascript">
+			
+			document.querySelector('img').style.width = 150 + "px";
+			document.querySelector('img').style.height = 150 + "px";
+
+			function manejaZoom(e) {
+
+				var tamanyoActual = parseInt(document.querySelector('img').style.width.slice(0, -2));
+
+				
+
+				if (e.keyCode == 45) { // restar
+
+					if (tamanyoActual > 150) {
+
+						tamanyoActual -= 25;
+						console.log(tamanyoActual);
+						document.querySelector('img').style.width = tamanyoActual + "px";
+						document.querySelector('img').style.height = tamanyoActual + "px";
+
+					}
+
+				} else if (e.keyCode == 43) {  // sumar
+
+					if (tamanyoActual < 1024) {
+
+						tamanyoActual += 25;
+						console.log(tamanyoActual);
+						document.querySelector('img').style.width = tamanyoActual + "px";
+						document.querySelector('img').style.height = tamanyoActual + "px";
+					}
+				}
+
+			}
+
+		</script>
+	</body>
+</html>

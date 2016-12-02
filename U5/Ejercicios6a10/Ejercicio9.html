@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ejercicio 9</title>
+
+		<style type="text/css">
+
+			h1{
+				margin: 10px;
+				text-align: center;
+			}
+
+			div{
+				position: absolute;
+				background-color: yellow;
+				border: 1px solid black;
+				opacity: 0.7;
+				height: 300px;
+				width: 300px;
+				margin: 200px;
+			}
+
+		</style>
+
+	</head>
+	<body>
+		<h1>Pulsa una flecha de dirección</h1>
+		<div></div>
+
+		<script type="text/javascript">
+			document.querySelector('div').style.left = "20px";
+			document.querySelector('div').style.top = "60px";
+		</script>
+
+		<script type="text/javascript">
+
+			onkeyup = function (e) {
+
+				var div = document.querySelector('div');
+
+				if (e.keyCode == 37) {   // izquierda
+					var posicionActual = parseInt(div.style.left.substring(0, div.style.left.length - 2));
+					var posnew = posicionActual - 20;
+					if (posnew >= 0) {
+						div.style.left = posnew + "px";
+					}
+				} 
+				else if (e.keyCode == 38) {   // arriba
+
+					var posicionActual = parseInt(div.style.top.substring(0, div.style.top.length - 2));
+					var posnew = posicionActual - 20;
+					if (posnew >= 0) {
+						div.style.top = posnew + "px";
+					}
+
+				} 
+				else if (e.keyCode == 39) {   // derecha
+
+					var posicionActual = parseInt(div.style.left.substring(0, div.style.left.length - 2));
+					var posnew = posicionActual + 20;
+					if (posnew <= window.screen.availWidth) {
+						div.style.left = posnew + "px";
+					}
+
+				} 
+				else if (e.keyCode == 40) {   // abajo
+
+					var posicionActual = parseInt(div.style.top.substring(0, div.style.top.length - 2));
+					var posnew = posicionActual + 20;
+					if (posnew <= window.screen.availHeight) {
+						div.style.top = posnew + "px";
+					}
+
+				}
+
+			}
+		</script>
+
+	</body>
+</html>

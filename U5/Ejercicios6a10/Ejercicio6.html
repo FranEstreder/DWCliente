@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ejercicio 6</title>
+
+		<style type="text/css">
+
+			body{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				display: table;
+				margin: 0px;
+			}
+
+			p{
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+				font-size: 30px;
+			}
+
+			span{
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+				font-size: 100px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<p>Presiona una tecla y le diré su caracter ASCII</p>
+		<span></span>
+
+		<script type="text/javascript">
+
+			onkeydown = function (e) {
+				document.querySelector('p').style.display = "none";
+				document.querySelector('span').innerHTML = e.keyCode;
+			}
+
+		</script>
+
+	</body>
+</html>
