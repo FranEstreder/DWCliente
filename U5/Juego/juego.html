@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<meta charset="utf-8">
+		<title>Tres en Raya</title>
+
+		<style type="text/css">
+
+			div{
+				width: 100px;
+				height: 100px;
+				margin: 5px;
+				border-radius: 50px;
+				background-color: lightgrey;
+				float: left;
+			}
+
+			p{
+				width: 300px;
+				margin: 5px;
+				text-align: center;
+				font-family: Arial;
+				font-size: 24px;
+			}
+
+			.verde{
+				color: lightgreen;
+			}
+
+			.rosa{
+				color: pink;
+			}
+
+			#celda21, #celda31{
+				clear: left;
+			}
+
+
+
+		</style>
+
+		<script type="text/javascript">
+
+			onload = function () {
+				var divs = document.getElementsByTagName('div');
+				for (var i = 0; i < divs.length; i++) {
+					divs[i].style.backgroundColor = "lightgrey";
+				}
+			}
+
+			var numeroFichas = [3, 3];
+			var colorFicha = ['lightgreen', 'pink'];
+			var turno = 0;
+
+			var gana = false;
+
+			function controlaTurno() {
+
+				var fichas = [];
+
+				fichas[0] = new Array(3);
+				fichas[1] = new Array(3);
+				fichas[2] = new Array(3);
+
+				var lineaH, lineaV;
+
+				for (var i = 0; i < 3; i++) {
+
+				   	for (var j = 0; j < 3; j++) {
+
+				   		lineaH = i + 1;
+				   		lineaV = j + 1;
+				      	fichas[i][j] = document.getElementById('celda' + lineaH + lineaV).style.backgroundColor;
+				                                         
+				   	}
+
+				}	
+
+				if (
+					(fichas[0][0] == fichas[0][1] && fichas[0][1] == fichas[0][2] && fichas[0][2] != "lightgrey") || 
+					(fichas[1][0] == fichas[1][1] && fichas[1][1] == fichas[1][2] && fichas[1][2] != "lightgrey") ||
+					(fichas[2][0] == fichas[2][1] && fichas[2][1] == fichas[2][2] && fichas[2][2] != "lightgrey") ||
+					(fichas[0][0] == fichas[1][0] && fichas[1][0] == fichas[2][0] && fichas[2][0] != "lightgrey") ||
+					(fichas[0][1] == fichas[1][1] && fichas[1][1] == fichas[2][1] && fichas[2][1] != "lightgrey") ||
+					(fichas[0][2] == fichas[1][2] && fichas[1][2] == fichas[2][2] && fichas[2][2] != "lightgrey") ||
+					(fichas[0][0] == fichas[1][1] && fichas[1][1] == fichas[2][2] && fichas[2][2] != "lightgrey") ||
+					(fichas[0][2] == fichas[1][1] && fichas[1][1] == fichas[2][0] && fichas[2][0] != "lightgrey")) {
+
+					if (turno == 1) {
+
+						setTimeout(function () {
+							alert("¡El jugador Verde ha ganado!");
+							document.querySelector('p').setAttribute("class", "verde");
+						document.querySelector('p').innerHTML = "¡Verde Gana!";
+						}, 100);
+
+					}
+					else {
+						
+						setTimeout(function () {
+							alert("¡El jugador Rosa ha ganado!");
+							document.querySelector('p').setAttribute("class", "rosa");
+							document.querySelector('p').innerHTML = "¡Rosa Gana!";
+						}, 100);
+						
+					}
+
+					gana = true;
+
+				}		
+
+			}
+
+			onclick = function (e) {	
+
+				if (gana == false) {
+
+					if (e.target.nodeName == "DIV" && numeroFichas[turno] == 0 && e.target.style.backgroundColor == "lightgrey") {
+						alert("No te quedan fichas"); 	
+					} else{
+
+						if (e.target.nodeName == "DIV" && turno == 0 && e.target.style.backgroundColor == "lightgrey") {
+
+							e.target.style.backgroundColor = colorFicha[0];
+							numeroFichas[0] -= 1;
+							turno = 1;
+
+							controlaTurno();
+
+							document.querySelector('p').innerHTML = "Turno del Rosa"; 
+							document.querySelector('p').setAttribute("class", "rosa");
+
+						}else if (e.target.nodeName == "DIV" && turno == 1 && e.target.style.backgroundColor == "lightgrey") {
+
+							e.target.style.backgroundColor = colorFicha[1];
+							numeroFichas[1] -= 1;
+							turno = 0;
+
+							controlaTurno();
+
+							document.querySelector('p').innerHTML = "Turno del Verde";
+							document.querySelector('p').setAttribute("class", "verde");
+
+						}
+
+					}
+				}
+			}
+
+			ondblclick = function (e){
+
+				if (gana == false) {
+				
+					if (e.target.nodeName == "DIV" && turno == 0 && e.target.style.backgroundColor == "lightgreen") {
+						e.target.style.backgroundColor = "lightgrey";
+						numeroFichas[0] += 1;
+					}else if (e.target.nodeName == "DIV" && turno == 1 && e.target.style.backgroundColor == "pink") {
+						e.target.style.backgroundColor = "lightgrey";
+						numeroFichas[1] += 1;
+					}
+
+				}
+
+			}
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<p class="verde">Turno del Verde</p>
+
+		<div id="celda11"></div><div id="celda12"></div><div id="celda13"></div>
+		<div id="celda21"></div><div id="celda22"></div><div id="celda23"></div>
+		<div id="celda31"></div><div id="celda32"></div><div id="celda33"></div>		
+
+	</body>
+</html>
