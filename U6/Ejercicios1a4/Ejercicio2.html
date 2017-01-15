@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>Ejemplo Formulario</title>
+        <script text="text/javascript" src="js/scriptEjFormularioResuelto.js"></script>
+        <link rel="stylesheet" href="css/estiloEjFormulario.css">
+
+    </head>
+
+    <body>
+
+        <form id="formulario" action="#" method="post" enctype="application/x-www-urlencoded">
+
+            <!--Zona info personal-->
+            <h1>Formulario alta</h1>
+            <fieldset>
+                <legend>Información personal</legend>
+                <div>
+                    <label for="nombre">Nombre*:</label>
+                    <input type="text" name="nombre" id="nombre" autofocus="autofocus" placeholder="Introduce el nombre..."></input>
+                </div>
+
+                <div>
+                    <label for="apellidos">Apellidos*:</label>
+                    <input type="text" name="apellidos" id="apellidos"></input>
+                </div>
+
+                <div>
+                    <label for="email">Email*:</label>
+                    <input type="email" name="email" id="email"></input>
+                </div>
+
+                <div>
+                    <label for="email">Repetir email*:</label>
+                    <input type="email" name="email" id="emailRepe"></input>
+                </div>
+
+                <div id="radio">
+                    <span>Sexo:</span>
+                    <label for="H">Hombre
+                        <input type="radio" name="sexo" id="H" value="H"></input>
+                    </label>
+                    <label for="M">Mujer
+                        <input type="radio" name="sexo" id="M" value="M"></input>
+                    </label>
+                </div>
+
+                <div id="inputFecha">
+                    <label for="fecha">Fecha nacimiento*:</label>
+                    <input type="date" name="fecha" id="fecha"></input>
+                </div>
+
+                <div>
+                    <label for="selector">Provincia:</label>
+                    <select name="provincia" id="selector">
+                        <option value="0">Escoge provincia </option>
+                        <option value="C">Castellón</option>
+                        <option value="V">Valencia</option>
+                        <option value="A">Alicante</option>
+                    </select>
+                </div>
+
+                <div id="inputPoblacion">
+                    <label for="poblacion">Población:</label>
+                    <input type="text" name="poblacion" id="poblacion"></input>
+                </div>
+
+                <div>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" name="telefono" id="telefono"></input>
+                </div>
+
+                <div>
+                    <!-- <label for="color">Color camiseta inscripción:</label> -->
+                    Escoge el color de tu avatar:
+                    <input type="color" name="color" id="color"></input>
+                </div>
+
+            </fieldset>
+
+            <!--Zona checks y aceptar-->
+            <label class="check">
+                <input type="checkbox" name="copiaForo" id="foro"></input>
+                <p> Deseo recibir copias de los mensajes del foro en mi correo electrónico</p>
+            </label>
+
+            <label class="check">
+                <input type="checkbox" name="notificaEventos" id="eventos"></input>
+                <p> Deseo recibir notificaciones de próximos eventos en mi correo electrónico</p>
+            </label>
+
+            <input type="submit" value="Enviar" id="enviar" onclick="this.disabled=true; this.value='Enviando...'; this.form.submit()"></input>
+
+            <div id="nota">Nota: los campos marcados con "*" son obligatorios</div>
+
+            <!-- Incluyo un div vacío para poner los errores del formulario -->
+            <div class="errores"></div>
+
+        </form>
+
+    </body>
+
+</html>

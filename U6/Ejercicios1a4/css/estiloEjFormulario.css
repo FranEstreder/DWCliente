@@ -1,0 +1,50 @@
+form {
+  margin: 10px;
+}
+fieldset{
+  margin-top:5px;
+  margin-bottom:5px;
+}
+div {
+  margin: .4em 0 .8em 0;
+}
+div label {
+  width: 20%;
+  float: left;
+}
+div#inputFecha{
+  clear:left;
+  padding-top: 10px;
+}
+.check {
+  display:block;
+}
+p {
+  display:inline;
+}
+span{
+  width: 10%;
+  float:left;
+}
+#nota{
+  border:1px dotted black;
+  margin: 10px;
+  padding: 5px;
+  font-style: italic;
+  font-size: 0.8em;
+}
+input:focus {
+  outline: none;
+  border: 1px solid violet;
+  background-color: silver;
+}
+input[type="text"]{
+  padding: 0.4em;
+}
+input, select{
+  border-radius: 5px;
+}
+input[type="submit"]{
+  display: block;
+  margin: .4em 0 .8em 0;
+}
