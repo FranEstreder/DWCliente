@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Validar Formulario</title>
+        <style>
+
+            body {
+                font-family: monospace;
+            }
+
+            div {
+                margin: .4em 0 .8em 0;
+            }
+
+            div label {
+                width: 10%;
+                float: left;
+            }
+
+            input[type="text"]{
+                margin: 5px;
+                left: 300px;
+                padding-left: 3px;
+                border-radius: 5px;
+            }
+
+            [type="submit"]{
+                margin-top: 10px;
+                display:block;
+                text-align: left;
+            }
+
+            #ncap {
+                font-weight: bold;
+            }
+
+            #captcha{
+                font-size: 20px;
+                display:block;
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+            }
+
+            .captcha{
+                clear:left;
+            }
+
+        </style>
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+
+    <body>
+        <form action="#" method="post">
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" maxlength="20"></input>
+            </div>
+
+            <div>
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" name="apellidos" maxlength="20"></input>
+            </div>
+
+            <div>
+                <label for="edad">Edad:</label>
+                <input type="text" name="edad"></input>
+            </div>
+
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" name="email"></input>
+            </div>
+
+            <div>
+                <label for="dni">DNI:</label>
+                <input type="text" name="dni"></input>
+            </div>
+
+            <div>
+                <input type="checkbox" name="condiciones" id="condiciones"></input>
+                <span> He leído y acepto las condiciones de alta en el servicio</span>
+            </div>
+            <br>
+            <div class="captcha">
+                Captcha: Escriba el número <span id="ncap"></span>
+                <input type="text" name="captcha" id="captcha"></input>
+            </div>
+
+            <input type="submit" value="Comprobar"></input>
+            <p id="resultado"></p>
+
+            <div class="errores"></div>
+        </form>
+    </body>
+
+</html>
