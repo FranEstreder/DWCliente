@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+		<title>Práctica 3 Soptify</title>
+		<style type="text/css">
+			img{
+				transition: all .2s ease-in-out;
+			}
+			img:hover{
+				transform: scale(1.5);
+			}
+		</style>
+	</head>
+	<body>
+		<fieldset>
+			<legend>Busca el artista</legend>
+			<input type="text" id="artista">
+			<button>Busca</button>
+		</fieldset>
+		<fieldset id="pregunta">
+			<legend>¿Cuál de estos es?</legend>
+			<select id="selector">
+				<option value="none">Elige uno de estos</option>
+			</select>
+		</fieldset>
+		<fieldset id="album">
+			<legend>Selecciona un álbum</legend>
+			<div id="albumes"></div>
+		</fieldset>
+
+		<ul id="canciones"></ul>
+	</body>
+</html>
