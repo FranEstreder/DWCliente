@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	var url = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+	var url = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
 	$("button").click(function () {
 		$("#resultado").empty();
 		var tag = $("#selector").val();
