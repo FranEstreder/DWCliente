@@ -6,7 +6,7 @@ if (window.XMLHttpRequest) {
 
 onload = function () {
 	xhr.addEventListener("readystatechange", cambioSelector1);
-	xhr.open('GET', 'http://swapi.co/api/?format=json', true);
+	xhr.open('GET', 'https://swapi.co/api/?format=json', true);
 	xhr.send();
 	selector1.onchange = usoSelector1;
 	selector2.onchange = usoSelector2;
@@ -42,7 +42,7 @@ function usoSelector1() {
 	xhr.addEventListener("readystatechange", cambioSelector2);
 	var valor = selector1.value;
 	if (valor != "none") {
-		xhr.open('GET', 'http://swapi.co/api/' + valor + '/?format=json', true);
+		xhr.open('GET', 'https://swapi.co/api/' + valor + '/?format=json', true);
 		xhr.send();
 	}
 }
