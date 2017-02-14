@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Examen Bloque 3</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <style media="screen">
+            form{
+                width: 400px;
+            }
+            div label{
+                width: 100px;
+                float:left;
+                margin-top: 5px;
+            }
+            input[type="text"],input[type="password"]{
+                padding-left:0.4em;
+                margin-top: 5px;
+            }
+            input[type="submit"]{
+                float:right;
+            }
+            #ayuda{
+                font-size: 0.8em;
+                font-style: italic;
+            }
+            #resultado, #errores{
+                font-size: 0.8em;
+                font-style: italic;
+                font-weight: bold;
+                color: red;
+            }
+            #contenido{
+                border: 1px solid navy;
+                height: 200px;
+            }
+        </style>
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body>
+        <form>
+            <fieldset>
+                <legend>Login</legend>
+                <div>
+                    <label for="us">Usuario:</label>
+                    <input type="text" name="us" id="user">
+                </div>
+            <div>
+                <label for="pass">Contraseña:</label>
+                <input type="password" name="pass" id="pass">
+                <a href="#">Ayuda</a>
+                <p id="ayuda"></p>
+            </div>
+            <p id="resultado"></p>
+            <p id="errores"></p>
+            <input type="submit" value="Enviar" id="enviar"></input>
+            </fieldset>
+        </form>
+        <h3>Mis imágenes:</h3>
+        <div id="contenido"></div>
+    </body>
+</html>

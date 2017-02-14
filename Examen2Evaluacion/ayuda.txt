@@ -1,0 +1,1 @@
+﻿Es necesario que la contraseña tenga entre 6 y 8 carácteres alfanuméricos
