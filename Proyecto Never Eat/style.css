@@ -1,0 +1,19 @@
+.navbar{
+	border-radius: 0px;
+	background-color: #33428F;
+}
+
+#inicioSesion, #registro{
+	color: white;
+}
+
+#inicioSesion:hover, #registro:hover{
+	text-decoration: underline;
+}
+
+#nevereatLogo{
+	width: 124px;
+	height: 34px;
+	position: absolute;
+	vertical-align: middle;
+}
