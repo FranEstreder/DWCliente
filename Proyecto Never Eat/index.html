@@ -8,53 +8,110 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<link rel="stylesheet" type="text/css" href="style.css">
+  	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 
-	<nav class="navbar navbar-default">
-  		<div id="" class="container-fluid">
+	<nav class="navbar navbar-default affix" data-spy="affix">
+  		<div class="container-fluid">
 			<div class="navbar-header">
+
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Abrir Navegación</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
 				<a class="navbar-brand" href="#"><img src="http://7c7f13.medialib.glogster.com/avatars/417fda38f3407cca5a60dab6eea570151abc9978667dbb10d76ec3da8cf75bff/medium/strengthinloyalty.png" id="nevereatLogo" alt="Logo de Never Eat"></a>
 	    	</div>
-	    	<ul class="nav navbar-nav navbar-right">
-	      		<li><a href="#" id="inicioSesion"><span class="glyphicon glyphicon-user"></span> Iniciar Sesión</a></li>
-	      		<li><a href="#" id="registro"><span class="glyphicon glyphicon-log-in"></span>  Registrarse</a></li>
-	    	</ul>
+
+	    	<div class="collapse navbar-collapse navbar-ex1-collapse">
+
+		        <div id="navHeader">
+			        <ul class="nav nav-tabs navbar-nav">
+			            <li class="active"><a href="#home">Inicio</a></li>
+			            <li><a href="#japones">Japonés</a></li>
+			            <li><a href="#americano">Americano</a></li>
+			            <li><a href="#indio">Indio</a></li>
+			            <li><a href="#frances">Francés</a></li>
+			            <li><a href="#hamburgueseria">Hamburguesería</a></li>
+			            <li><a href="#pizzeria">Pizzería</a></li>
+			        </ul>
+			        <div id="navHeaderSearch" class="col-lg-2 col-md-2">
+			        	<div class="input-group">
+					        <input type="text" class="form-control" id="inputSuccess2">
+					        <div class="input-group-btn">
+					            <button class="btn btn-default" type="button" id="showPassword">
+					            	<i class="glyphicon glyphicon-search"></i>
+					            </button>
+				        	</div>
+				        </div>
+			        </div>
+			    </div>
+
+		    	<ul class="nav navbar-nav navbar-right">
+		      		<li><a href="#" id="inicioSesion"><span id="inicioIcono" class="glyphicon glyphicon-user"></span>Iniciar Sesión</a></li>
+		      		<li><a href="#" id="registro"><span id="registroIcono" class="glyphicon glyphicon-log-in"></span>Registrarse</a></li>
+		    	</ul>    
+		    	
+		    </div>
   		</div>
 	</nav>
 
+	<div class="container-fluid">
+		<div id="banner">
+			<div class="container" id="menuNav">
+				<h2>Tipos de restaurantes</h2>
+		    	<div id="navContentDiv" class="col-lg-7 col-md-7 col-sm-12">
+			        <ul id="navContent" class="nav nav-tabs">
+			            <li class="active"><a href="#home">Inicio</a></li>
+			            <li><a href="#japones">Japonés</a></li>
+			            <li><a href="#americano">Americano</a></li>
+			            <li><a href="#indio">Indio</a></li>
+			            <li><a href="#frances">Francés</a></li>
+			            <li><a href="#hamburgueseria">Hamburguesería</a></li>
+			            <li><a href="#pizzeria">Pizzería</a></li>
+			        </ul>
+			    </div>
+			    <div id="cajaBusqueda" class="input-group col-lg-3 col-md-3">
+			        <input type="text" class="form-control" id="inputSuccess2">
+			        <span class="input-group-btn">
+			            <button class="btn btn-default" type="button" id="showPassword"><span class="glyphicon glyphicon-search"></span></button>
+			        </span>
+	    		</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="container">
-	  	<h2>Dynamic Tabs</h2>
-	    <div class="col-md-9">
-	        <ul class="nav nav-tabs">
-	           	<li class="active"><a href="#home">Inicio</a></li>
-	            <li><a href="#menu1">Comida Japonesa</a></li>
-	            <li><a href="#menu2">Comida </a></li>
-	        </ul>
-	    </div>
-	    <div class="input-group col-md-3">
-	        <input type="text" class="form-control" id="inputSuccess2">
-	        <span class="input-group-btn">
-	            <button class="btn btn-default" type="button" id="showPassword"><span class="glyphicon glyphicon-search"></span></button>
-	        </span>
-	    </div>
+	    
 	  	<div class="tab-content">
 	    	<div id="home" class="tab-pane fade in active">
-		      	<h3>HOME</h3>
-		      	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	      		<h3>HOME</h3>
+	      		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	      		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	      		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	      		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	      		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	      		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	      		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	      		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	      		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	      		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	      		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	      		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	      		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	      		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	      		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	      		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	      		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	      		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	      		consequat. Duis aute irure dolor in reprehenderit in voluptate  ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	      		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	      		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	      		cons</p>
 	    	</div>
-		    <div id="menu1" class="tab-pane fade">
-		      	<h3>Menu 1</h3>
-		      	<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		    </div>
-		    <div id="menu2" class="tab-pane fade">
-		      	<h3>Menu 2</h3>
-		      	<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-		    </div>
-		    <div id="menu3" class="tab-pane fade">
-		      	<h3>Menu 3</h3>
-		      	<p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-		    </div>
 	  	</div>
 	</div>
 

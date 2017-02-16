@@ -1,6 +1,53 @@
+.affix {
+    top: 0;
+    width: 100%;
+    z-index: 90000000;
+}
+
+#nevereatLogo{
+	width: 124px;
+	height: 34px;
+	position: absolute;
+	vertical-align: middle;
+}
+
+.container-fluid{
+	margin: 0px;
+	padding: 0px;
+}
+
+.navbar-header{
+	vertical-align: middle;
+}
+
+.navbar-brand{
+	margin-top: -7px;
+	margin-left: 15px !important;
+	padding-left: 0px; 
+}
+
+#navHeader ul{
+	margin-left: 154px;
+	border: none;
+}
+
+#navHeader ul li a{
+	color: white;
+}
+
+#navHeaderSearch{
+	margin-top: 8px;
+}
+
+.nav{
+	margin-right: 0px;
+}
+
 .navbar{
 	border-radius: 0px;
 	background-color: #33428F;
+	margin: 0px;
+	border: none;
 }
 
 #inicioSesion, #registro{
@@ -11,9 +58,41 @@
 	text-decoration: underline;
 }
 
-#nevereatLogo{
-	width: 124px;
-	height: 34px;
+#inicioIcono, #registroIcono{
+	margin-right: 6px;
+}
+
+#banner{
+	background: url("banner.jpg") no-repeat 0px 0px;
+	background-size: cover;
+	min-height: 640px;
+	position: relative;
+}
+
+#menuNav{
 	position: absolute;
-	vertical-align: middle;
+	bottom: 0;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100%;
+}
+
+#menuNav h2{
+	color: white;
+}
+
+li a{
+	color: white;
+}
+
+li a:hover{
+	color: #33428F;
+}
+
+.active a{
+	color: #33428F !important;
+}
+
+#cajaBusqueda{
+	float: right;
 }
