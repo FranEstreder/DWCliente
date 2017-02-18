@@ -1,4 +1,5 @@
 <?php
+header("Acces-Control-Allow-Origin: *");
 require_once('lib/OAuth.php');
 
 $DBservername = "137.74.50.41";

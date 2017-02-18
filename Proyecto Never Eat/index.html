@@ -13,11 +13,84 @@
 </head>
 <body>
 
+
+
+
+	<!-- Modal de Inicio-->
+	<div id="modalInicio" class="modal fade" role="dialog">
+  		<div class="modal-dialog">
+
+	    	<!-- Modal content-->
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+	        		<button type="button" class="close" data-dismiss="modal">&times;</button>
+	        		<h4 class="modal-title">Inicio de Sesión</h4>
+	      		</div>
+	      		<div class="modal-body">
+	        		<!-- Contenido del modal -->
+	        		<form method="post" id="formIni">
+	        			<label for="nomUsuIni">Nombre de Usuario</label><br>
+	        			<input type="text" class="form-control" name="nomUsuIni" id="nomUsuIni" maxlength="50"><br>
+	        			<label for="passIni">Contraseña</label><br>
+	        			<input type="password" name="passIni" class="form-control" id="passIni" maxlength="50"><br>
+	        			<label for="recordar" class="checkbox-inline">
+	        				<input type="checkbox" name="recordar" id="recordar">Recuérdame
+						</label>
+	        		</form>
+	      		</div>
+	      		<div class="modal-footer">
+	      			<button type="button" class="btn btn-primary" data-dismiss="modal" id="botonIni">Iniciar Sesión</button>
+	        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+	      		</div>
+	    	</div>
+
+  		</div>
+	</div>
+
+	<!-- Modal de Registro-->
+	<div id="modalRegistro" class="modal fade" role="dialog">
+  		<div class="modal-dialog">
+
+	    	<!-- Modal content-->
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+	        		<button type="button" class="close" data-dismiss="modal">&times;</button>
+	        		<h4 class="modal-title">Regístrate</h4>
+	      		</div>
+	      		<div class="modal-body">
+	        		<!-- Contenido del modal -->
+	        		<form method="post" id="formReg">
+	        			<label for="nom">Nombre</label><br>
+	        			<input type="text" class="form-control" name="nom" id="nom" maxlength="50"><br>
+	        			<label for="apellidos">Apellidos</label><br>
+	        			<input type="text" class="form-control" name="apellidos" id="apellidos" maxlength="50"><br>
+	        			<label for="correo">Correo Electrónico</label><br>
+	        			<input type="text" class="form-control" name="correo" id="correo" maxlength="50"><br>
+	        			<label for="nomUsu">Nombre de Usuario</label><br>
+	        			<input type="text" class="form-control" name="nomUsu" id="nomUsu" maxlength="50"><br>
+	        			<label for="pass1">Contraseña</label><br>
+	        			<input type="password" name="pass1" class="form-control" id="pass1" maxlength="50"><br>
+	        			<label for="pass2">Repite la Contraseña</label><br>
+	        			<input type="password" name="pass2" class="form-control" id="pass2" maxlength="50"><br>
+	        		</form>
+	      		</div>
+	      		<div class="modal-footer">
+	      			<button type="button" class="btn btn-primary" data-dismiss="modal">Crear Cuenta</button>
+	        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+	      		</div>
+	    	</div>
+
+  		</div>
+	</div>
+
+
+
+
 	<nav class="navbar navbar-default affix" data-spy="affix">
   		<div class="container-fluid">
 			<div class="navbar-header">
 
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" id="botonHamburguesa">
 					<span class="sr-only">Abrir Navegación</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -52,8 +125,8 @@
 			    </div>
 
 		    	<ul class="nav navbar-nav navbar-right">
-		      		<li><a href="#" id="inicioSesion"><span id="inicioIcono" class="glyphicon glyphicon-user"></span>Iniciar Sesión</a></li>
-		      		<li><a href="#" id="registro"><span id="registroIcono" class="glyphicon glyphicon-log-in"></span>Registrarse</a></li>
+		      		<li><a href="#" id="inicioSesion" data-toggle="modal" data-target="#modalInicio"><span id="inicioIcono" class="glyphicon glyphicon-user"></span>Iniciar Sesión</a></li>
+		      		<li><a href="#" id="registro" data-toggle="modal" data-target="#modalRegistro"><span id="registroIcono" class="glyphicon glyphicon-log-in"></span>Registrarse</a></li>
 		    	</ul>    
 		    	
 		    </div>

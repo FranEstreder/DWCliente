@@ -1,3 +1,11 @@
+.modal-backdrop{
+	z-index: 90000001;
+}
+
+.modal{
+	z-index: 90000002;
+}
+
 .affix {
     top: 0;
     width: 100%;
@@ -95,4 +103,22 @@ li a:hover{
 
 #cajaBusqueda{
 	float: right;
+}
+
+@media (max-width: 767px){
+	#nevereatLogo{
+		margin-left: 10px;
+	}
+
+	#botonHamburguesa{
+		margin-right: 25px;
+	}
+
+	.navbar-right{
+		margin-left: 10px;
+	}
+
+	#navHeader ul{
+		margin-left: 15px;
+	}
 }
