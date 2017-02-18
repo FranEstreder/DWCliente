@@ -1,5 +1,5 @@
 <?php
-header("Acces-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *");
 require_once('lib/OAuth.php');
 
 $DBservername = "137.74.50.41";
@@ -13,12 +13,30 @@ $TOKEN = '1beoyE1yfdHDefYGiamyCyhaDz2B56vw';
 $TOKEN_SECRET = 'o-7hihcTRbZG1tmdYAZTDQJtVuM';
 
 $DEFAULT_TERM = '';
+$DEFAULT_QUERY = '';
 $DEFAULT_LOCATION = '';
 
 if (isset($_GET['method']))
 {
     switch($_GET['method'])
     {
+        case 'search':
+            if (isset($_POST['query']))
+                $DEFAULT_QUERY = $_POST['query'];
+            else
+            {
+                echo 'No se ha pasado parametros de busqueda';
+                break;
+            }
+            if (isset($_POST['provincia']))
+                $DEFAULT_LOCATION = $_POST['provincia'];
+            else
+            {
+                echo 'No tiene una provincia seleccionada';
+                break;
+            }
+            searchPlaces();
+        break;
         case 'places':
             if (isset($_POST['tipo']))
                 $DEFAULT_TERM = $_POST['tipo'];
@@ -147,6 +165,54 @@ if (isset($_GET['method']))
 }
 else
     echo 'No puedes hacer consultas sin metodo.';
+
+function searchPlaces () {
+    $url_params = array();
+    
+    $url_params['term'] = $GLOBALS['DEFAULT_QUERY'];
+    $url_params['location'] = $GLOBALS['DEFAULT_LOCATION'];
+    
+    $url_params['sort'] = 1;
+    $url_params['radius_filter'] = 40000;
+    
+
+    $token = new OAuthToken($GLOBALS['TOKEN'], $GLOBALS['TOKEN_SECRET']);
+    $consumer = new OAuthConsumer($GLOBALS['CONSUMER_KEY'], $GLOBALS['CONSUMER_SECRET']);
+    $signature_method = new OAuthSignatureMethod_HMAC_SHA1();
+    $unsigned_url = "https://api.yelp.com/v2/search/". "?" . http_build_query($url_params);
+    
+    $oauthrequest = OAuthRequest::from_consumer_and_token(
+        $consumer, 
+        $token, 
+        'GET', 
+        $unsigned_url
+    );
+
+    $oauthrequest->sign_request($signature_method, $consumer, $token);
+    $signed_url = $oauthrequest->to_url();
+
+    try {
+        $ch = curl_init($signed_url);
+        if (FALSE === $ch)
+            throw new Exception('Failed to initialize');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        $data = curl_exec($ch);
+        if (FALSE === $data)
+            throw new Exception(curl_error($ch), curl_errno($ch));
+        $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        if (200 != $http_status)
+            throw new Exception($data, $http_status);
+        curl_close($ch);
+    } catch(Exception $e) {
+        trigger_error(sprintf(
+            'Curl failed with error #%d: %s',
+            $e->getCode(), $e->getMessage()),
+            E_USER_ERROR);
+    }
+    
+    echo $data;
+}
 
 function getPlaces () {
     $url_params = array();

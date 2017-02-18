@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   	<title>Never Eat</title>
   	<meta charset="utf-8">
@@ -12,77 +12,78 @@
 	<script type="text/javascript" src="scriptLocalizacion.js"></script>
 </head>
 <body>
-
+	<h1 style="position: absolute; top: -500000px;">Never Eat</h1>
 
 
 
 	<!-- Modal de Inicio-->
-	<div id="modalInicio" class="modal fade" role="dialog">
-  		<div class="modal-dialog">
-
-	    	<!-- Modal content-->
-	    	<div class="modal-content">
-	      		<div class="modal-header">
-	        		<button type="button" class="close" data-dismiss="modal">&times;</button>
-	        		<h4 class="modal-title">Inicio de Sesión</h4>
-	      		</div>
-	      		<div class="modal-body">
-	        		<!-- Contenido del modal -->
-	        		<form method="post" id="formIni">
-	        			<label for="nomUsuIni">Nombre de Usuario</label><br>
-	        			<input type="text" class="form-control" name="nomUsuIni" id="nomUsuIni" maxlength="50"><br>
-	        			<label for="passIni">Contraseña</label><br>
-	        			<input type="password" name="passIni" class="form-control" id="passIni" maxlength="50"><br>
-	        			<label for="recordar" class="checkbox-inline">
-	        				<input type="checkbox" name="recordar" id="recordar">Recuérdame
-						</label>
-	        		</form>
-	      		</div>
-	      		<div class="modal-footer">
-	      			<button type="button" class="btn btn-primary" data-dismiss="modal" id="botonIni">Iniciar Sesión</button>
-	        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-	      		</div>
-	    	</div>
-
-  		</div>
-	</div>
-
-	<!-- Modal de Registro-->
-	<div id="modalRegistro" class="modal fade" role="dialog">
-  		<div class="modal-dialog">
-
-	    	<!-- Modal content-->
-	    	<div class="modal-content">
-	      		<div class="modal-header">
-	        		<button type="button" class="close" data-dismiss="modal">&times;</button>
-	        		<h4 class="modal-title">Regístrate</h4>
-	      		</div>
-	      		<div class="modal-body">
-	        		<!-- Contenido del modal -->
-	        		<form method="post" id="formReg">
-	        			<label for="nom">Nombre</label><br>
-	        			<input type="text" class="form-control" name="nom" id="nom" maxlength="50"><br>
-	        			<label for="apellidos">Apellidos</label><br>
-	        			<input type="text" class="form-control" name="apellidos" id="apellidos" maxlength="50"><br>
-	        			<label for="correo">Correo Electrónico</label><br>
-	        			<input type="text" class="form-control" name="correo" id="correo" maxlength="50"><br>
-	        			<label for="nomUsu">Nombre de Usuario</label><br>
-	        			<input type="text" class="form-control" name="nomUsu" id="nomUsu" maxlength="50"><br>
-	        			<label for="pass1">Contraseña</label><br>
-	        			<input type="password" name="pass1" class="form-control" id="pass1" maxlength="50"><br>
-	        			<label for="pass2">Repite la Contraseña</label><br>
-	        			<input type="password" name="pass2" class="form-control" id="pass2" maxlength="50"><br>
-	        		</form>
-	      		</div>
-	      		<div class="modal-footer">
-	      			<button type="button" class="btn btn-primary" data-dismiss="modal">Crear Cuenta</button>
-	        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-	      		</div>
-	    	</div>
-
-  		</div>
-	</div>
-
+ 	<div id="modalInicio" class="modal fade" role="dialog">
+   		<div class="modal-dialog">
+ 
+ 	    	<!-- Modal content-->
+ 	    	<div class="modal-content">
+ 	      		<div class="modal-header">
+ 	        		<button type="button" class="close" data-dismiss="modal">&times;</button>
+ 	        		<h2 class="modal-title">Inicio de Sesión</h2>
+ 	      		</div>
+ 	      		<div class="modal-body">
+ 	        		<!-- Contenido del modal -->
+ 	        		<form method="post" id="formIni" action="https://nevereat.tk/api.php?method=login">
+ 	        			<label for="nomUsuIni">Nombre de Usuario</label><br>
+ 	        			<input type="text" class="form-control" name="nomUsuIni" id="nomUsuIni" maxlength="50"><br>
+ 	        			<label for="passIni">Contraseña</label><br>
+ 	        			<input type="password" name="passIni" class="form-control" id="passIni" maxlength="50"><br>
+ 	        			<label for="recordar" class="checkbox-inline">
+ 	        				<input type="checkbox" name="recordar" id="recordar">Recuérdame
+ 						</label>
+						 <input style="position: absolute; top: -50000px;" type="submit" value="Iniciar Sesion">
+ 	        		</form>
+ 	      		</div>
+ 	      		<div class="modal-footer">
+ 	      			<button type="button" class="btn btn-primary" data-dismiss="modal" id="botonIni">Iniciar Sesión</button>
+ 	        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+ 	      		</div>
+ 	    	</div>
+ 
+   		</div>
+ 	</div>
+ 
+ 	<!-- Modal de Registro-->
+ 	<div id="modalRegistro" class="modal fade" role="dialog">
+   		<div class="modal-dialog">
+ 
+ 	    	<!-- Modal content-->
+ 	    	<div class="modal-content">
+ 	      		<div class="modal-header">
+ 	        		<button type="button" class="close" data-dismiss="modal">&times;</button>
+ 	        		<h2 class="modal-title">Regístrate</h2>
+ 	      		</div>
+ 	      		<div class="modal-body">
+ 	        		<!-- Contenido del modal -->
+ 	        		<form method="post" id="formReg" action="https://nevereat.tk/api.php?method=register">
+ 	        			<label for="nom">Nombre</label><br>
+ 	        			<input type="text" class="form-control" name="nom" id="nom" maxlength="50"><br>
+ 	        			<label for="apellidos">Apellidos</label><br>
+ 	        			<input type="text" class="form-control" name="apellidos" id="apellidos" maxlength="50"><br>
+ 	        			<label for="correo">Correo Electrónico</label><br>
+ 	        			<input type="text" class="form-control" name="correo" id="correo" maxlength="50"><br>
+ 	        			<label for="nomUsu">Nombre de Usuario</label><br>
+ 	        			<input type="text" class="form-control" name="nomUsu" id="nomUsu" maxlength="50"><br>
+ 	        			<label for="pass1">Contraseña</label><br>
+ 	        			<input type="password" name="pass1" class="form-control" id="pass1" maxlength="50"><br>
+ 	        			<label for="pass2">Repite la Contraseña</label><br>
+ 	        			<input type="password" name="pass2" class="form-control" id="pass2" maxlength="50"><br>
+						 <input style="position: absolute; top: -50000px;" type="submit" value="Crear Cuenta">
+ 	        		</form>
+ 	      		</div>
+ 	      		<div class="modal-footer">
+ 	      			<button type="button" class="btn btn-primary" data-dismiss="modal">Crear Cuenta</button>
+ 	        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+ 	      		</div>
+ 	    	</div>
+ 
+   		</div>
+ 	</div>
 
 
 
@@ -111,13 +112,15 @@
 			            <li><a href="#french">Francés</a></li>
 			            <li><a href="#burgers">Hamburguesería</a></li>
 			            <li><a href="#pizza">Pizzería</a></li>
+						<li><a href="#search">Busqueda</a></li>
 			        </ul>
 			        <div id="navHeaderSearch" class="col-lg-2 col-md-2">
+						<label style="position: absolute; top: -500000px;" for="inputSearchTop">Busqueda</label>
 			        	<div class="input-group">
-					        <input type="text" class="form-control" id="inputSuccess2">
+					        <input type="text" class="form-control" id="inputSearchTop">
 					        <div class="input-group-btn">
-					            <button class="btn btn-default" type="button" id="showPassword">
-					            	<i class="glyphicon glyphicon-search"></i>
+					            <button class="btn btn-default" type="button" id="searchTop">
+					            	<span class="glyphicon glyphicon-search"></span>
 					            </button>
 				        	</div>
 				        </div>
@@ -126,7 +129,7 @@
 
 		    	<ul class="nav navbar-nav navbar-right">
 		      		<li><a href="#" id="inicioSesion" data-toggle="modal" data-target="#modalInicio"><span id="inicioIcono" class="glyphicon glyphicon-user"></span>Iniciar Sesión</a></li>
-		      		<li><a href="#" id="registro" data-toggle="modal" data-target="#modalRegistro"><span id="registroIcono" class="glyphicon glyphicon-log-in"></span>Registrarse</a></li>
+ 		      		<li><a href="#" id="registro" data-toggle="modal" data-target="#modalRegistro"><span id="registroIcono" class="glyphicon glyphicon-log-in"></span>Registrarse</a></li>
 		    	</ul>    
 		    	
 		    </div>
@@ -146,12 +149,14 @@
 			            <li><a href="#french">Francés</a></li>
 			            <li><a href="#burgers">Hamburguesería</a></li>
 			            <li><a href="#pizza">Pizzería</a></li>
+						<li><a href="#search">Busqueda</a></li>
 			        </ul>
 			    </div>
+				<label style="position: absolute; top: -500000px;" for="inputSearchBottom">Busqueda</label>
 			    <div id="cajaBusqueda" class="input-group col-lg-3 col-md-3">
-			        <input type="text" class="form-control" id="inputSuccess2">
+			        <input type="text" class="form-control" id="inputSearchBottom">
 			        <span class="input-group-btn">
-			            <button class="btn btn-default" type="button" id="showPassword"><span class="glyphicon glyphicon-search"></span></button>
+			            <button class="btn btn-default" type="button" id="searchBottom"><span class="glyphicon glyphicon-search"></span></button>
 			        </span>
 	    		</div>
 			</div>
@@ -162,41 +167,41 @@
 	    
 	  	<div class="tab-content">
 	    	<div id="home" class="tab-pane fade in active">
-	      		<h3>HOME</h3>
-	      		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	      		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	      		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	      		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	      		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	      		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	      		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	      		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	      		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	      		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	      		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	      		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	      		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	      		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	      		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	      		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	      		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	      		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	      		consequat. Duis aute irure dolor in reprehenderit in voluptate  ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	      		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	      		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	      		cons</p>
+	      		<h3>¿Que somos?</h3>
+	      		<p>Somos una web de busqueda de restaurantes inversa en la cual puedes encontrar restaurantes en la punta contraria de españa de la que vives, por ejemplo:</p>
+				<p>Si vives en Valencia, encontrarás restaurantes de La Coruña.</p>
+				<p>Lo cual no es útil para nada pero es muy gracioso.</p>
 	    	</div>
 	  	</div>
 	</div>
 
 	<div id="footer" class="panel panel-default">
   		<div class="panel-footer">Panel Footer</div>
+		  <a href="http://www.tawdis.net/system/modules/org.fundacionctic.taw4_wcag_informes_ocms/elements/wcag20/resumen.jsp?url=https%3A%2F%2Fnevereat.tk%2F&crc=1&nivel=aaa" target="_blank" tittle="Abre la página del nivel AA de conformidad. Todas las páginas del dominio han sido desarrolladas con las tecnologías XHTML 1.0, CSS 3.0 y Javascript 6.0, con fecha 18/02/2017 cumple las directrices 2.0 WCAG-WAI para obtener el nivel de conformidad Doble-A">				<span class="tawlogo">
+					<acronym title="Test de accesibilidad web versión 3">
+					t<span style="color: rgb(255, 0, 0);">.</span>
+					a<span style="color: rgb(220, 131, 16);">.</span>
+					w<span style="color: rgb(0, 170, 0);">.</span><sup>3</sup></acronym>
+					<span class="tnivel"><abbr title="Nivel AA - WCAG 1.0 WAI">AA</abbr></span>
+				</span>
+				</a>
+		<a style="margin-left: 5px;" href="http://www.w3.org/WAI/WCAG2AA-Conformance" title="Abre la página del nivel AA de conformidad. Todas las páginas del dominio han sido desarrolladas con las tecnologías XHTML 1.0, CSS 3.0 y Javascript 6.0, con fecha 18/02/2017 cumple las directrices 2.0 WCAG-WAI para obtener el nivel de conformidad Doble-A">
+
+                <img height="32" width="88" src="//www.w3.org/WAI/wcag2AA" alt="Nivel Double-A,
+                        W3C WAI Web Content Accessibility Guidelines 2.0"></a>
 	</div>
 
 	<script>
 	$(document).ready(function(){
 	    $(".nav-tabs a").click(function(){
-			obtenerSitios($(this).attr('href').substring(1),localStorage.getItem("pos"));
+			if ((loaded)&& ($(this).attr('href') != '#search')){
+				loaded = false;
+				obtenerSitios($(this).attr('href').substring(1),localStorage.getItem("pos"));
+			}
+			else if ((loaded)&&($(this).attr('href') == '#search')) {
+				if ($('#search').length)
+					$('.nav-tabs a[href="#search"]').tab('show');
+			}
 	    });
 	});
 	</script>

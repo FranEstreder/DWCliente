@@ -1,5 +1,32 @@
 // Tipo de restaurante seleccionado
 var selectedType = "";
+var loaded = true;
+var ubicacionOriginal;
+
+$(document).ready(function () {
+    $('[href="#search"]').hide();
+    $('#searchTop').click(function () {
+        buscarSitios($('#inputSearchTop').val());
+    });
+
+    $('#searchBottom').click(function () {
+        buscarSitios($('#inputSearchBottom').val());
+    });
+
+    $('#inputSearchTop').on('keypress', function (e) {
+		// Si se ha apretado Enter
+		if (e.which == 13) {
+			buscarSitios($('#inputSearchTop').val());
+		}
+	});
+
+    $('#inputSearchBottom').on('keypress', function (e) {
+		// Si se ha apretado Enter
+		if (e.which == 13) {
+			buscarSitios($('#inputSearchBottom').val());
+		}
+	});
+});
 
 // Comprobamos que está hecha la función para combertir numeros a radianes y si no, la creamos
 if(typeof Number.prototype.toRadians == 'undefined')
@@ -8,13 +35,12 @@ if(typeof Number.prototype.toRadians == 'undefined')
     }
 
 // Obtenemos la posición del navegador y medimos la distancia con todas las ciudades del archivo JSON
-//if (localStorage.getItem("pos") == null) //ToDo: Descomentar esto
 navigator.geolocation.getCurrentPosition(function(position) {
-    console.log(position);
-    
+        
     $.getJSON({
     url: "provincias.json",
     success: function (data) {
+        ubicacionOriginal = { lat: position.coords.latitude, lon: position.coords.longitude };
         var distancias = new Array();
         for (var provincia in data)
         {
@@ -49,22 +75,80 @@ function obtenerSitios (tipoComida, nombreProvincia)
     }
 }
 
+function buscarSitios (busqueda) {
+    selectedType = "search";
+    $.post({
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+        url: 'https://nevereat.tk/api.php?method=search',
+        data: { query: busqueda, provincia: localStorage.getItem('pos')},
+        success: placesCallback
+    });
+
+}
+
 // Respuesta de los establecimientos en un sitio determinado
 function placesCallback (results)
 {
+    if (selectedType == "search")
+    {
+        $('.nav-tabs a[href="#inicio"]').tab('show');
+
+        if ($('#search').length)
+        {
+            $('#search ul').remove();
+
+            var html = '<ul class="list-group">';
+            results = JSON.parse(results);
+            sessionStorage.setItem(selectedType, JSON.stringify(results));
+            
+            for (var bussines of results.businesses)
+                html += '<li class="list-group-item"><img style="float:left;" src="'+bussines.image_url+'"></img><div style="margin-left: 110px;"><a target="_blank" href="'+bussines.url+'"><p>'+bussines.name+'</p></a><a href="tel:'+bussines.phone+'"><p>'+bussines.display_phone+'</p></a><img src="'+bussines.rating_img_url+'"></img><p>'+bussines.location.address[0]+', '+bussines.location.city+'</p></div></li>';
+            html += '</ul>';
+
+            $('#search').append(html);
+        }
+        
+        $('[href="#search"]').show();
+    }
+
     if (!$('#' + selectedType).length)
     {
-        
-
         var html = '<div id="'+selectedType+'" class="tab-pane fade"><ul class="list-group">';
         results = JSON.parse(results);
         sessionStorage.setItem(selectedType, JSON.stringify(results));
-        
+        console.log(results.businesses[0].location);
         for (var bussines of results.businesses)
-            html += '<li class="list-group-item">'+bussines.name+'</li>';
+        {
+            var distancia = calcularDistancia(ubicacionOriginal, {lat: bussines.location.coordinate.latitude, lon: bussines.location.coordinate.longitude});
+
+            var segundos = distancia/0.027;
+            var minutos = 0;
+
+            while (segundos > 59)
+            {
+                segundos -= 60;
+                minutos++;
+            }
+
+            var horas = 0;
+
+            while (minutos > 59)
+            {
+                minutos -= 60;
+                horas++;
+            }
+
+            var tiempo = "";
+
+            html += '<li class="list-group-item"><img style="float:left;" src="'+bussines.image_url+'"></img><div style="margin-left: 110px;"><a target="_blank" href="'+bussines.url+'"><p>'+bussines.name+'</p></a><a href="tel:'+bussines.phone+'"><p>'+bussines.display_phone+'</p></a><img src="'+bussines.rating_img_url+'"></img><p>'+bussines.location.address[0]+', '+bussines.location.city+'</p><p>Distancia: '+Math.floor(distancia)+' km aprox.</p><p>Tiempo de entrega aproximando: '+horas+' horas, '+minutos+' minutos, '+Math.floor(segundos)+' segundos</p></div></li>';
+
+        }
         html += '</ul></div>';
+
         $('.tab-content').append(html);
     }
+    loaded = true;
+    
     $('.nav-tabs a[href="#' + selectedType +'"]').tab('show');
 }
 

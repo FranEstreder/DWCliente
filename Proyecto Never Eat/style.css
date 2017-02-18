@@ -1,10 +1,10 @@
 .modal-backdrop{
-	z-index: 90000001;
-}
-
-.modal{
-	z-index: 90000002;
-}
+ 	z-index: 90000001;
+ }
+ 
+ .modal{
+ 	z-index: 90000002;
+ }
 
 .affix {
     top: 0;
@@ -89,11 +89,11 @@
 	color: white;
 }
 
-li a{
+.nav li a{
 	color: white;
 }
 
-li a:hover{
+.nav li a:hover{
 	color: #33428F;
 }
 
@@ -105,20 +105,64 @@ li a:hover{
 	float: right;
 }
 
-@media (max-width: 767px){
-	#nevereatLogo{
-		margin-left: 10px;
-	}
 
-	#botonHamburguesa{
-		margin-right: 25px;
-	}
+/*------------(CSS LOGO TAW)------------*/
 
-	.navbar-right{
-		margin-left: 10px;
-	}
-
-	#navHeader ul{
-		margin-left: 15px;
-	}
+.tawlogo { 
+font-family: arial, sans-serif; 
+border: 1px solid #555; 
+vertical-align: 0.3em;
+font-weight: bold;
+color: #fff;
+font-size: 0.9em; 
+background-color: #555;
+padding: 0;
 }
+
+.tawlogo .tnivel {
+padding: 0 0.4em ;
+border-bottom: 0px;
+background-color: #555;
+color: #fff;
+font-size: 0.8em;
+}
+
+.tawlogo abbr {
+border-bottom: 0px;
+}
+
+.tawlogo acronym{
+border-bottom: 0px;
+padding: 0 0.3em;
+background-color: #fff;
+color: #000;	
+}
+
+.tawlogo sup{
+padding: 0em;
+vertical-align: 0.6em;
+font-size: 0.6em;
+}
+/*------------(CSS LOGO TAW)------------*/
+
+.modal-header h2 {
+	font-size: 18px;
+}
+
+@media (max-width: 767px){
+ 	#nevereatLogo{
+ 		margin-left: 10px;
+ 	}
+ 
+ 	#botonHamburguesa{
+ 		margin-right: 25px;
+ 	}
+ 
+ 	.navbar-right{
+ 		margin-left: 10px;
+ 	}
+ 
+ 	#navHeader ul{
+ 		margin-left: 15px;
+ 	}
+  } 
