@@ -1,0 +1,2 @@
+
+"Almería","Cádiz","Córdoba","Granada","Huelva","Jaén","Málaga","Sevilla","Albacete","Ciudad Real","Cuenca","Guadalajara","Toledo","Badajoz","Cáceres","Alicante","Castellón","Valencia","Madrid","Ávila","Burgos","León","Palencia","Salamanca","Segovia","Soria","Valladolid","Zamora","Huesca","Teruel","Zaragoza","Barcelona","Gerona","Lérida","Tarragona","La coruña","Lugo","Ourense","Pontevedra","Principado de asturias","Cantabria","Araba","Gipuzkoa","Bizkaia","Navarra","Murcia","La Rioja"];

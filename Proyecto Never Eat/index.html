@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  	<title>Bootstrap Case</title>
+  	<title>Never Eat</title>
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -9,6 +9,7 @@
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<link rel="stylesheet" type="text/css" href="style.css">
   	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="scriptLocalizacion.js"></script>
 </head>
 <body>
 
@@ -31,12 +32,12 @@
 		        <div id="navHeader">
 			        <ul class="nav nav-tabs navbar-nav">
 			            <li class="active"><a href="#home">Inicio</a></li>
-			            <li><a href="#japones">Japonés</a></li>
-			            <li><a href="#americano">Americano</a></li>
-			            <li><a href="#indio">Indio</a></li>
-			            <li><a href="#frances">Francés</a></li>
-			            <li><a href="#hamburgueseria">Hamburguesería</a></li>
-			            <li><a href="#pizzeria">Pizzería</a></li>
+			            <li><a href="#japanese">Japonés</a></li>
+			            <li><a href="#tradamerican">Americano</a></li>
+			            <li><a href="#indpak">Indio</a></li>
+			            <li><a href="#french">Francés</a></li>
+			            <li><a href="#burgers">Hamburguesería</a></li>
+			            <li><a href="#pizza">Pizzería</a></li>
 			        </ul>
 			        <div id="navHeaderSearch" class="col-lg-2 col-md-2">
 			        	<div class="input-group">
@@ -66,12 +67,12 @@
 		    	<div id="navContentDiv" class="col-lg-7 col-md-7 col-sm-12">
 			        <ul id="navContent" class="nav nav-tabs">
 			            <li class="active"><a href="#home">Inicio</a></li>
-			            <li><a href="#japones">Japonés</a></li>
-			            <li><a href="#americano">Americano</a></li>
-			            <li><a href="#indio">Indio</a></li>
-			            <li><a href="#frances">Francés</a></li>
-			            <li><a href="#hamburgueseria">Hamburguesería</a></li>
-			            <li><a href="#pizzeria">Pizzería</a></li>
+			            <li><a href="#japanese">Japonés</a></li>
+			            <li><a href="#tradamerican">Americano</a></li>
+			            <li><a href="#indpak">Indio</a></li>
+			            <li><a href="#french">Francés</a></li>
+			            <li><a href="#burgers">Hamburguesería</a></li>
+			            <li><a href="#pizza">Pizzería</a></li>
 			        </ul>
 			    </div>
 			    <div id="cajaBusqueda" class="input-group col-lg-3 col-md-3">
@@ -122,7 +123,7 @@
 	<script>
 	$(document).ready(function(){
 	    $(".nav-tabs a").click(function(){
-	        $(this).tab('show');
+			obtenerSitios($(this).attr('href').substring(1),localStorage.getItem("pos"));
 	    });
 	});
 	</script>
