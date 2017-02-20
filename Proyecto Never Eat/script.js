@@ -1,5 +1,47 @@
 $(document).ready(function () {
-	
+
+	//Funciones para la política de cookies
+	var visit = GetCookie("cookies_surestao");
+    if (visit == 1){
+        $('#overbox3').toggle();
+    }
+
+	$("#cerrarCookies").on("click", function () {
+		var expire = new Date();
+	    expire = new Date(expire.getTime() + 7776000000);
+	    document.cookie = "cookies_surestao=aceptada; expires=" + expire;
+	 
+	    var visit = GetCookie("cookies_surestao");
+	    if (visit == 1){
+	        popbox3();
+	    }
+	});
+
+	function GetCookie(name) {
+	    var arg = name + "=";
+	    var alen = arg.length;
+	    var clen = document.cookie.length;
+	    var i = 0;
+	    while (i < clen) {
+	        var j = i + alen;
+	 
+	        if (document.cookie.substring(i, j) == arg){
+	            return "1";
+	        }
+	        i = document.cookie.indexOf(" ",i) + 1;
+	        if (i == 0){
+	            break;
+	        }
+	     }
+	    return null;
+	}
+	 
+	function popbox3() {
+	    $('#overbox3').toggle();
+	}
+	//Fin de las funciones de la política de cookies
+
+	//Funciones para hacer los modales de Inicio Sesión, Registro y Contacto
 	$("#navHeader").hide();
 	$("#msgBienvenida").hide();
 	$("#botonCerrarSesion").hide();
@@ -245,15 +287,22 @@ $(document).ready(function () {
 	});
 
 	//Script para el contador de caracteres del textarea
-	$(document).ready(function() {
-	    var text_max = 500;
-	    $('#textarea_feedback').html(text_max + ' caracteres restantes');
+    var text_max = 500;
+    $('#textarea_feedback').html(text_max + ' caracteres restantes');
 
-	    $('#comentario').keyup(function() {
-	        var text_length = $('#comentario').val().length;
-	        var text_remaining = text_max - text_length;
-	        $('#textarea_feedback').html(text_remaining + ' caracteres restantes');
-	    });
+    $('#comentario').keyup(function() {
+        var text_length = $('#comentario').val().length;
+        var text_remaining = text_max - text_length;
+        $('#textarea_feedback').html(text_remaining + ' caracteres restantes');
+    });
+
+	//Fin de las funciones para hacer los modales de Inicio Sesión, Registro y Contacto
+
+	$("#botonAvisoLegal").on("click", function () {
+		$("#botonAvisoLegal").tab("show");
+		$('ul .active').each(function (i, item) {
+			$(item).removeClass("active");
+		});
 	});
 
 });

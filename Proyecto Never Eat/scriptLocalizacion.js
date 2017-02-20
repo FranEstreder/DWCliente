@@ -4,6 +4,12 @@ var loaded = true;
 var ubicacionOriginal;
 
 $(document).ready(function () {
+    $('#loading').hide();
+
+    $(window).on('popstate', historyToggle);
+    $(window).on('forward', historyToggle);
+    
+
     $('[href="#search"]').hide();
     $('#searchTop').click(function () {
         buscarSitios($('#inputSearchTop').val());
@@ -51,14 +57,27 @@ navigator.geolocation.getCurrentPosition(function(position) {
             return -(a.dis - b.dis);
         });
         localStorage.setItem("pos", distancias[0].nom);
+
+        if (location.hash == "#home" ||location.hash == "#avisoLegal")
+        {
+            $('[href="' + location.hash +'"]').tab('show');
+            $('title').html('Never Eat - ' + $($('[href="' + location.hash +'"]')[0]).html())
+            $('ul .active').each(function (i, item) {
+                $(item).removeClass("active");
+            });
+        }
+        else if (location.hash != "")
+        {
+            obtenerSitios(location.hash.substring(1),distancias[0].nom);
+        }
     }
     });
 });
 
-// Petición a la API de Yelp para que nos diga los restaurantes de un tipo en un sitio determinado siempre y cuando
-// No esté guardado en el navegador
+// Petición a la API de Yelp para que nos diga los restaurantes de un tipo en un sitio determinado
 function obtenerSitios (tipoComida, nombreProvincia) 
 {
+    $('#loading').show();
     selectedType = tipoComida;
     if (sessionStorage.getItem(tipoComida) != null)
     {
@@ -76,6 +95,7 @@ function obtenerSitios (tipoComida, nombreProvincia)
 }
 
 function buscarSitios (busqueda) {
+    $('#loading').show();
     selectedType = "search";
     $.post({
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -116,7 +136,7 @@ function placesCallback (results)
         var html = '<div id="'+selectedType+'" class="tab-pane fade"><ul class="list-group">';
         results = JSON.parse(results);
         sessionStorage.setItem(selectedType, JSON.stringify(results));
-        console.log(results.businesses[0].location);
+        
         for (var bussines of results.businesses)
         {
             var distancia = calcularDistancia(ubicacionOriginal, {lat: bussines.location.coordinate.latitude, lon: bussines.location.coordinate.longitude});
@@ -148,11 +168,28 @@ function placesCallback (results)
         $('.tab-content').append(html);
     }
     loaded = true;
-    
+    $('#loading').hide();
     $('.nav-tabs a[href="#' + selectedType +'"]').tab('show');
+    $('title').html('Never Eat - ' + $($('.nav-tabs a[href="#' + selectedType +'"]')[0]).html())
+    
+
 }
 
+function historyToggle() {
 
+    if (location.hash == "#home" ||location.hash == "#avisoLegal")
+    {
+        $('[href="' + location.hash +'"]').tab('show');
+        $('title').html('Never Eat - ' + $($('[href="' + location.hash +'"]')[0]).html())
+        $('ul .active').each(function (i, item) {
+			$(item).removeClass("active");
+		});
+    }
+    else if (location.hash != "")
+    {
+        obtenerSitios(location.hash.substring(1),localStorage.getItem('pos'));
+    }
+}
 
 
 // Utils

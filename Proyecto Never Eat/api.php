@@ -114,7 +114,7 @@ if (isset($_GET['method']))
                 if (mysqli_num_rows($resultado) >= 1)
                 {
                     $row = mysqli_fetch_array($resultado,MYSQLI_ASSOC);
-                    echo $row['name'] .' '. $row['surname'];
+                    echo $row['name'] .';'. $row['surname'];
                 }
                 else
                 {
@@ -183,7 +183,7 @@ if (isset($_GET['method']))
             $mysqli = new mysqli($DBservername, $DBusername, $DBpassword, $DBdbname);
             if (mysqli_query($mysqli, "INSERT INTO users (username,password,name,surname,email) VALUES ('".$uname."', '".$pass."', '".$name."', '".$surname."', '".$mail."');") === TRUE) 
             {
-                echo $name . " ". $surname;
+                echo $name . ";". $surname;
             }
             else
             {

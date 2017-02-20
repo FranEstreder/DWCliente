@@ -1,3 +1,39 @@
+#overbox3 {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 999999;
+    display: block;
+}
+
+#infobox3 {
+    margin: auto;
+    position: relative;
+    top: 0px;
+    height: 58px;
+    width: 100%;
+    text-align:center;
+    background-color: #33428F;
+    color: white;
+}
+
+#infobox3 p {
+    line-height:58px;
+    font-size:12px;
+    text-align:center;
+}
+
+#infobox3 p a {
+    margin-right:5px;
+    text-decoration: underline;
+    color: white
+}
+
+#cerrarCookies{
+	cursor: pointer;
+}
+
 .modal-backdrop{
  	z-index: 90000001;
 }
@@ -151,6 +187,12 @@
 	float: right;
 }
 
+#logos{
+	position: relative;
+	display: inline;
+	top: 10px;
+	margin-left: 10px;
+}
 
 /*------------(CSS LOGO TAW)------------*/
 
@@ -220,6 +262,20 @@ font-size: 0.6em;
 	margin: 0px;
 	border: none;
 	height: 50px;
+}
+
+#botonAvisoLegal{
+	float: right;
+	color: white;
+	background-color: #33428F;
+	border: none;
+	text-align: center;
+	vertical-align: middle;
+	margin-top: 3px;
+}
+
+#botonAvisoLegal:hover{
+	text-decoration: underline;
 }
 
 #footerBoton{
