@@ -10,6 +10,16 @@
   	<link rel="stylesheet" type="text/css" href="style.css">
   	<script type="text/javascript" src="script.js"></script>
 	<script type="text/javascript" src="scriptLocalizacion.js"></script>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="apple-mobile-web-app-title" content="Never Eat">
+	<meta name="application-name" content="Never Eat">
+	<meta name="theme-color" content="#ffffff">
+
 </head>
 <body>
 	<h1 style="position: absolute; top: -500000px;">Never Eat</h1>
@@ -36,18 +46,19 @@
  	        			<label for="recordar" class="checkbox-inline">
  	        				<input type="checkbox" name="recordar" id="recordar">Recuérdame
  						</label>
-						 <input style="position: absolute; top: -50000px;" type="submit" value="Iniciar Sesion">
+						<input style="position: absolute; top: -50000px;" type="submit" value="Iniciar Sesion">
  	        		</form>
+ 	        		<div id="errorIni"></div>
  	      		</div>
  	      		<div class="modal-footer">
- 	      			<button type="button" class="btn btn-primary" data-dismiss="modal" id="botonIni">Iniciar Sesión</button>
+ 	      			<button type="button" class="btn btn-primary" id="botonIni">Iniciar Sesión</button>
  	        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
  	      		</div>
  	    	</div>
  
    		</div>
  	</div>
- 
+
  	<!-- Modal de Registro-->
  	<div id="modalRegistro" class="modal fade" role="dialog">
    		<div class="modal-dialog">
@@ -73,19 +84,18 @@
  	        			<input type="password" name="pass1" class="form-control" id="pass1" maxlength="50"><br>
  	        			<label for="pass2">Repite la Contraseña</label><br>
  	        			<input type="password" name="pass2" class="form-control" id="pass2" maxlength="50"><br>
-						 <input style="position: absolute; top: -50000px;" type="submit" value="Crear Cuenta">
+						<input style="position: absolute; top: -50000px;" type="submit" value="Crear Cuenta">
  	        		</form>
+ 	        		<div id="errorReg"></div>
  	      		</div>
  	      		<div class="modal-footer">
- 	      			<button type="button" class="btn btn-primary" data-dismiss="modal">Crear Cuenta</button>
+ 	      			<button type="button" class="btn btn-primary" id="botonReg">Crear Cuenta</button>
  	        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
  	      		</div>
  	    	</div>
  
    		</div>
  	</div>
-
-
 
 	<nav class="navbar navbar-default affix" data-spy="affix">
   		<div class="container-fluid">
@@ -98,7 +108,7 @@
 					<span class="icon-bar"></span>
 				</button>
 
-				<a class="navbar-brand" href="#"><img src="http://7c7f13.medialib.glogster.com/avatars/417fda38f3407cca5a60dab6eea570151abc9978667dbb10d76ec3da8cf75bff/medium/strengthinloyalty.png" id="nevereatLogo" alt="Logo de Never Eat"></a>
+				<a class="navbar-brand" href="#"><img src="img/logoNeverEat.svg" id="nevereatLogo" alt="Logo de Never Eat"></a>
 	    	</div>
 
 	    	<div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -128,8 +138,8 @@
 			    </div>
 
 		    	<ul class="nav navbar-nav navbar-right">
-		      		<li><a href="#" id="inicioSesion" data-toggle="modal" data-target="#modalInicio"><span id="inicioIcono" class="glyphicon glyphicon-user"></span>Iniciar Sesión</a></li>
- 		      		<li><a href="#" id="registro" data-toggle="modal" data-target="#modalRegistro"><span id="registroIcono" class="glyphicon glyphicon-log-in"></span>Registrarse</a></li>
+		      		<li><a href="#" id="inicioSesion" data-toggle="modal" data-target="#modalInicio"><span id="inicioIcono" class="glyphicon glyphicon-user"></span>Iniciar Sesión</a><div id="msgBienvenida"></div></li>
+ 		      		<li><a href="#" id="registro" data-toggle="modal" data-target="#modalRegistro"><span id="registroIcono" class="glyphicon glyphicon-log-in"></span>Registrarse</a><a href="#" id="botonCerrarSesion"><span id="cerrarSesionIcono" class="glyphicon glyphicon-off"></span>Cerrar Sesión</a></li>
 		    	</ul>    
 		    	
 		    </div>
@@ -138,27 +148,33 @@
 
 	<div class="container-fluid">
 		<div id="banner">
-			<div class="container" id="menuNav">
-				<h2>Tipos de restaurantes</h2>
-		    	<div id="navContentDiv" class="col-lg-7 col-md-7 col-sm-12">
-			        <ul id="navContent" class="nav nav-tabs">
-			            <li class="active"><a href="#home">Inicio</a></li>
-			            <li><a href="#japanese">Japonés</a></li>
-			            <li><a href="#tradamerican">Americano</a></li>
-			            <li><a href="#indpak">Indio</a></li>
-			            <li><a href="#french">Francés</a></li>
-			            <li><a href="#burgers">Hamburguesería</a></li>
-			            <li><a href="#pizza">Pizzería</a></li>
-						<li><a href="#search">Busqueda</a></li>
-			        </ul>
-			    </div>
-				<label style="position: absolute; top: -500000px;" for="inputSearchBottom">Busqueda</label>
-			    <div id="cajaBusqueda" class="input-group col-lg-3 col-md-3">
-			        <input type="text" class="form-control" id="inputSearchBottom">
-			        <span class="input-group-btn">
-			            <button class="btn btn-default" type="button" id="searchBottom"><span class="glyphicon glyphicon-search"></span></button>
-			        </span>
-	    		</div>
+			<div id="sombraBanner">
+				<div id="textoBanner">
+					<h2>NeverEat</h2>
+					<h3>Dónde tu comida nunca llega a tiempo</h3>
+				</div>
+				<div class="container" id="menuNav">
+					<h2>Tipos de restaurantes</h2>
+			    	<div id="navContentDiv" class="col-lg-7 col-md-7 col-sm-12">
+				        <ul id="navContent" class="nav nav-tabs">
+				            <li class="active"><a href="#home">Inicio</a></li>
+				            <li><a href="#japanese">Japonés</a></li>
+				            <li><a href="#tradamerican">Americano</a></li>
+				            <li><a href="#indpak">Indio</a></li>
+				            <li><a href="#french">Francés</a></li>
+				            <li><a href="#burgers">Hamburguesería</a></li>
+				            <li><a href="#pizza">Pizzería</a></li>
+							<li><a href="#search">Busqueda</a></li>
+				        </ul>
+				    </div>
+					<label style="position: absolute; top: -500000px;" for="inputSearchBottom">Busqueda</label>
+				    <div id="cajaBusqueda" class="input-group col-lg-3 col-md-3">
+				        <input type="text" class="form-control" id="inputSearchBottom">
+				        <span class="input-group-btn">
+				            <button class="btn btn-default" type="button" id="searchBottom"><span class="glyphicon glyphicon-search"></span></button>
+				        </span>
+		    		</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -176,19 +192,55 @@
 	</div>
 
 	<div id="footer" class="panel panel-default">
-  		<div class="panel-footer">Panel Footer</div>
-		  <a href="http://www.tawdis.net/system/modules/org.fundacionctic.taw4_wcag_informes_ocms/elements/wcag20/resumen.jsp?url=https%3A%2F%2Fnevereat.tk%2F&crc=1&nivel=aaa" target="_blank" tittle="Abre la página del nivel AA de conformidad. Todas las páginas del dominio han sido desarrolladas con las tecnologías XHTML 1.0, CSS 3.0 y Javascript 6.0, con fecha 18/02/2017 cumple las directrices 2.0 WCAG-WAI para obtener el nivel de conformidad Doble-A">				<span class="tawlogo">
-					<acronym title="Test de accesibilidad web versión 3">
-					t<span style="color: rgb(255, 0, 0);">.</span>
-					a<span style="color: rgb(220, 131, 16);">.</span>
-					w<span style="color: rgb(0, 170, 0);">.</span><sup>3</sup></acronym>
-					<span class="tnivel"><abbr title="Nivel AA - WCAG 1.0 WAI">AA</abbr></span>
-				</span>
-				</a>
-		<a style="margin-left: 5px;" href="http://www.w3.org/WAI/WCAG2AA-Conformance" title="Abre la página del nivel AA de conformidad. Todas las páginas del dominio han sido desarrolladas con las tecnologías XHTML 1.0, CSS 3.0 y Javascript 6.0, con fecha 18/02/2017 cumple las directrices 2.0 WCAG-WAI para obtener el nivel de conformidad Doble-A">
 
-                <img height="32" width="88" src="//www.w3.org/WAI/wcag2AA" alt="Nivel Double-A,
-                        W3C WAI Web Content Accessibility Guidelines 2.0"></a>
+		<a href="http://www.tawdis.net/system/modules/org.fundacionctic.taw4_wcag_informes_ocms/elements/wcag20/resumen.jsp?url=https%3A%2F%2Fnevereat.tk%2F&crc=1&nivel=aaa" target="_blank" tittle="Abre la página del nivel AA de conformidad. Todas las páginas del dominio han sido desarrolladas con las tecnologías XHTML 1.0, CSS 3.0 y Javascript 6.0, con fecha 18/02/2017 cumple las directrices 2.0 WCAG-WAI para obtener el nivel de conformidad Doble-A">				
+			<span class="tawlogo">
+				<acronym title="Test de accesibilidad web versión 3">
+				t<span style="color: rgb(255, 0, 0);">.</span>
+				a<span style="color: rgb(220, 131, 16);">.</span>
+				w<span style="color: rgb(0, 170, 0);">.</span><sup>3</sup></acronym>
+				<span class="tnivel"><abbr title="Nivel AA - WCAG 1.0 WAI">AA</abbr></span>
+			</span>
+		</a>
+		<a style="margin-left: 5px;" href="http://www.w3.org/WAI/WCAG2AA-Conformance" title="Abre la página del nivel AA de conformidad. Todas las páginas del dominio han sido desarrolladas con las tecnologías XHTML 1.0, CSS 3.0 y Javascript 6.0, con fecha 18/02/2017 cumple las directrices 2.0 WCAG-WAI para obtener el nivel de conformidad Doble-A">
+			<img height="32" width="88" src="//www.w3.org/WAI/wcag2AA" alt="Nivel Double-A,W3C WAI Web Content Accessibility Guidelines 2.0">
+		</a>
+
+        <!-- Modal del Footer -->
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalCont" id="footerBoton">Contacto</button>
+
+		<!-- Modal -->
+		<div id="modalCont" class="modal fade" role="dialog">
+	  		<div class="modal-dialog">
+
+			    <!-- Modal content-->
+			    <div class="modal-content">
+	      			<div class="modal-header">
+	        			<button type="button" class="close" data-dismiss="modal">&times;</button>
+	        			<h4 class="modal-title">Contacta con Nosotros</h4>
+	      			</div>
+		      		<div class="modal-body">
+						<form method="post" id="formCont" action="https://nevereat.tk/api.php?method=contact">
+	 	        			<label for="nomCont">Nombre</label><br>
+	 	        			<input type="text" class="form-control" name="nomCont" id="nomCont" maxlength="50"><br>
+	 	        			<label for="correoCont">Correo Electrónico</label><br>
+	 	        			<input type="text" name="correoCont" class="form-control" id="correoCont" maxlength="50"><br>
+	 	        			<label for="comentario">Comentario (Máximo 500 caracteres)</label>
+  							<textarea class="form-control" rows="5" id="comentario" maxlength="500"></textarea>
+  							<div id="textarea_feedback"></div>
+							<input style="position: absolute; top: -50000px;" type="submit" value="Iniciar Sesion">
+ 	        			</form>
+ 	        			<div id="errorCont"></div>
+
+		      		</div>
+		  			<div class="modal-footer">
+		  				<button type="button" class="btn btn-primary" id="botonCont">Enviar</button>
+		        		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+		      		</div>
+	    		</div>
+
+	  		</div>
+		</div>
 	</div>
 
 	<script>

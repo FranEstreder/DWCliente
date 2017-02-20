@@ -20,6 +20,37 @@ if (isset($_GET['method']))
 {
     switch($_GET['method'])
     {
+        case 'contact':
+            $name = "";
+            if (isset($_POST['name']))
+                $name = $_POST['name'];
+            else
+            {
+                echo 'Has de darme un nombre';
+                break;
+            }
+
+            $mail = "";
+            if (isset($_POST['mail']))
+                $mail = $_POST['mail'];
+            else
+            {
+                echo 'Has de darme un correo electrónico';
+                break;
+            }
+
+            $textArea = "";
+            if (isset($_POST['textArea']))
+                $textArea = $_POST['textArea'];
+            else
+            {
+                echo 'Has de darme un texto';
+                break;
+            }
+
+            mail($mail, "Contacto " . $name, $textArea);
+            mail("rubenlova.95@gmail.com", "Contacto " . $name, $mail. "\n" . $textArea);
+        break;
         case 'search':
             if (isset($_POST['query']))
                 $DEFAULT_QUERY = $_POST['query'];
@@ -79,10 +110,11 @@ if (isset($_GET['method']))
             }
 
             $mysqli = new mysqli($DBservername, $DBusername, $DBpassword, $DBdbname);
-            if ($resultado = mysqli_query($mysqli, "SELECT username FROM users WHERE username = '".$uname."' AND password = '".$pass."'")) {
+            if ($resultado = mysqli_query($mysqli, "SELECT * FROM users WHERE username = '".$uname."' AND password = '".$pass."'")) {
                 if (mysqli_num_rows($resultado) >= 1)
                 {
-                    echo 'ok';
+                    $row = mysqli_fetch_array($resultado,MYSQLI_ASSOC);
+                    echo $row['name'] .' '. $row['surname'];
                 }
                 else
                 {
@@ -151,7 +183,7 @@ if (isset($_GET['method']))
             $mysqli = new mysqli($DBservername, $DBusername, $DBpassword, $DBdbname);
             if (mysqli_query($mysqli, "INSERT INTO users (username,password,name,surname,email) VALUES ('".$uname."', '".$pass."', '".$name."', '".$surname."', '".$mail."');") === TRUE) 
             {
-                echo 'ok';
+                echo $name . " ". $surname;
             }
             else
             {
