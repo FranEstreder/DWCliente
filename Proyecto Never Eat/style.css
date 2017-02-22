@@ -159,6 +159,10 @@
 	position: relative;
 }
 
+.subtitulo{
+	font-size: 24px;
+}
+
 #menuNav{
 	position: absolute;
 	bottom: 0;

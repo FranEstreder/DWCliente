@@ -279,7 +279,7 @@ $(document).ready(function () {
 			return false;
 		}
 
-		$.post( "https://nevereat.tk/api.php?method=login", {name: nom, mail: correo, textArea: areaTexto}, function( data ) {
+		$.post( "https://nevereat.tk/api.php?method=contact", {name: nom, mail: correo, textArea: areaTexto}, function( data ) {
 		  	if (data == "nook") {
 		  		$("#errorCont").html("El nombre, el correo o el área de texto son incorrectos");
 		  	}
